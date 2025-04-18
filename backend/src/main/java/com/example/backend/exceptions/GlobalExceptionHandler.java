@@ -17,4 +17,24 @@ public class GlobalExceptionHandler {
                         .build()
         );
     }
+
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<ResponseObject> notFoundException(NotFoundException e) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                ResponseObject.builder()
+                        .status(HttpStatus.NOT_FOUND)
+                        .message(e.getMessage())
+                        .build()
+        );
+    }
+
+    @ExceptionHandler(BadRequestException.class)
+    public ResponseEntity<ResponseObject> badRequestException(BadRequestException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                ResponseObject.builder()
+                        .status(HttpStatus.BAD_REQUEST)
+                        .message(e.getMessage())
+                        .build()
+        );
+    }
 }
