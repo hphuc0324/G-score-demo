@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("${api.prefix}/score")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class StudentScoreController {
     private final StudentScoreService studentScoreService;
 
