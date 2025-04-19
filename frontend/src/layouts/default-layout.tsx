@@ -1,37 +1,7 @@
-import {
-  SidebarProvider,
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarGroup,
-  SidebarHeader,
-  SidebarTrigger,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-} from "@/components/ui/sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { Outlet, useLocation } from "react-router-dom";
-import {
-  Calendar,
-  Home,
-  Inbox,
-  Search,
-  Settings,
-  ChartBarBig,
-  ChartNoAxesCombined,
-} from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Search, ChartBarBig, ChartNoAxesCombined } from "lucide-react";
 import PcSidebar from "@/components/pc-sidebar";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 
 const items = [
   {
