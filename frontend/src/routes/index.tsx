@@ -13,11 +13,11 @@ export const publicRoutes = [
         element: <HomePage />,
       },
       {
-        path: "statistics",
+        path: "/statistics",
         element: <StatisticPage />,
       },
       {
-        path: "top-scores",
+        path: "/top-scores",
         element: <TopScorePage />,
       },
     ],
