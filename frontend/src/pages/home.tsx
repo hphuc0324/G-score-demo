@@ -6,6 +6,7 @@ import { StudentScore } from "@/types/dtos";
 import { useState } from "react";
 import scoreApi from "@/api/score-api";
 import { toast } from "react-toastify";
+import { AxiosError } from "axios";
 
 function HomePage() {
   const [id, setId] = useState<string>("");
@@ -18,7 +19,7 @@ function HomePage() {
       const res = await scoreApi.getScore(id);
 
       setData(res.data.data);
-    } catch (error: any) {
+    } catch (error: AxiosError | any) {
       setData(null);
       if (error.response) {
         console.log(error);

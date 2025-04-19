@@ -21,11 +21,11 @@ import {
 import { TopScore } from "@/types/dtos";
 import scoreApi from "@/api/score-api";
 import { toast } from "react-toastify";
+import { AxiosError } from "axios";
 
 function TopScorePage() {
   const [group, setGroup] = useState<string>(Group.A1);
   const [data, setData] = useState<TopScore[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
 
   function toCamelCase(str: string): string {
     return str.replace(/_([a-z])/g, (_, char) => char.toUpperCase());
@@ -34,16 +34,13 @@ function TopScorePage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setLoading(true);
         const res = await scoreApi.getTopScore(group);
         setData(res.data.data.topList);
-      } catch (error: any) {
+      } catch (error: AxiosError | any) {
         if (error.response) {
           console.log(error);
           toast.error(<p>{error.response.data.message}</p>);
         }
-      } finally {
-        setLoading(false);
       }
     };
 
